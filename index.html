@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المركز الوطني لإدارة الطوارئ والأزمات والكوارث - المنصة الإعلامية الموحدة</title>
+    <!-- تضمين خطوط جوجل الاحترافية والسيادية -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@700&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <!-- تضمين مكتبة Tailwind CSS للتصميم المتجاوب والألوان -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            dark: '#0B1A30',
+                            sidebar: '#0F2340',
+                            active: '#1E3A60'
+                        },
+                        warm: {
+                            bg: '#F6F3EC',
+                            card: '#FFFFFF'
+                        },
+                        accent: {
+                            gold: '#D4AF37',
+                            copper: '#C87D55',
+                            red: '#9E2A2B'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Tajawal', 'sans-serif'],
+                        title: ['Markazi Text', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #F6F3EC;
+        }
+        /* تحسين مظهر شريط التمرير */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #0F2340;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #1E3A60;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body class="h-screen overflow-hidden flex bg-warm-bg relative">
+
+    <!-- القائمة الجانبية (Sidebar) المتجاوبة تماماً -->
+    <aside id="sidebar" class="fixed inset-y-0 right-0 w-80 bg-navy-sidebar text-white flex flex-col h-full shadow-2xl z-30 border-l border-navy-dark/30 transform translate-x-full lg:translate-x-0 lg:static lg:w-80 transition-transform duration-300 ease-in-out">
+        <!-- الهوية والشعار المؤسسي -->
+        <div class="p-6 border-b border-white/10 flex flex-col items-center text-center relative">
+            <!-- زر إغلاق القائمة في الموبايل والتابلت -->
+            <button onclick="toggleSidebar()" class="lg:hidden absolute top-4 left-4 text-slate-400 hover:text-white focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <div class="w-20 h-20 bg-white rounded-full p-2 mb-3 shadow-inner flex items-center justify-center">
+                <!-- هيكل الشعار السيادي للمركز -->
+                <svg class="w-16 h-16 text-navy-sidebar" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="45" stroke="#0B2545" stroke-width="4"/>
+                    <path d="M50 15C30.67 15 15 30.67 15 50C15 69.33 30.67 85 50 85" stroke="#139A43" stroke-width="4" stroke-linecap="round"/>
+                    <path d="M50 25C63.8 25 75 36.2 75 50C75 63.8 63.8 75 50 75" stroke="#C87D55" stroke-width="4" stroke-linecap="round"/>
+                    <path d="M35 50 H65 M50 35 V65" stroke="#0B2545" stroke-width="3" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <h1 class="text-base font-bold leading-tight tracking-wide text-white">المركز الوطني لإدارة الطوارئ والأزمات والكوارث</h1>
+            <p class="text-[11px] text-slate-400 mt-1 font-medium">المنصة الإعلامية السيادية الموحدة</p>
+        </div>
+
+        <!-- روابط النوافذ التفاعلية (Navigation) -->
+        <nav class="flex-1 p-4 space-y-2 overflow-y-auto custom-scrollbar">
+            <div class="text-[10px] uppercase tracking-wider text-slate-400 px-3 mb-2 font-bold">إدارة الأزمات إعلامياً</div>
+            
+            <button onclick="switchTab('dashboard')" id="btn-dashboard" class="tab-btn w-full flex items-center gap-3 px-4 py-3.5 rounded-xl transition-all duration-200 bg-accent-copper text-white font-bold shadow-md">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2H6a2 2 0 01-2-2v-4zM14 16a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2h-2a2 2 0 01-2-2v-4z"></path></svg>
+                <span>الرئيسية ولوحة المتابعة اللحظية</span>
+            </button>
+
+            <button onclick="switchTab('publishing')" id="btn-publishing" class="tab-btn w-full flex items-center gap-3 px-4 py-3.5 rounded-xl transition-all duration-200 text-slate-300 hover:bg-white/5 hover:text-white font-medium">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+                <span>نظام NIFP (النشر الفوري)</span>
+            </button>
+
+            <button onclick="switchTab('rumors')" id="btn-rumors" class="tab-btn w-full flex items-center gap-3 px-4 py-3.5 rounded-xl transition-all duration-200 text-slate-300 hover:bg-white/5 hover:text-white font-medium">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                <span>مرصد الشائعات وتفنيد الحقائق</span>
+            </button>
+
+            <button onclick="switchTab('alerts')" id="btn-alerts" class="tab-btn w-full flex items-center gap-3 px-4 py-3.5 rounded-xl transition-all duration-200 text-slate-300 hover:bg-white/5 hover:text-white font-medium">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.003 6.003 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
+                <span>إرسال التحذيرات العاجلة SMS</span>
+            </button>
+        </nav>
+
+        <!-- الجزء السفلي للسرية والتحقق -->
+        <div class="p-4 border-t border-white/10 bg-navy-dark/50 flex flex-col gap-2">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-accent-copper flex items-center justify-center font-bold text-white shadow-md">م ع</div>
+                <div class="flex-1 min-w-0">
+                    <p class="text-sm font-bold truncate text-white">م. عبير أبو زقية</p>
+                    <p class="text-[11px] text-emerald-400 font-medium flex items-center gap-1">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block animate-pulse"></span>
+                        مستشار التحول الرقمي
+                    </p>
+                </div>
+            </div>
+            <div class="text-[10px] text-center text-rose-400 font-bold bg-rose-500/10 py-1 rounded border border-rose-500/20 tracking-wider">
+                سري للغاية - للاستخدام المشفر والرسمي
+            </div>
+        </div>
+    </aside>
+
+    <!-- غطاء خلفي للموبايل عند فتح القائمة -->
+    <div id="sidebar-overlay" onclick="toggleSidebar()" class="fixed inset-0 bg-black/50 z-20 hidden lg:hidden"></div>
+
+    <!-- منطقة عرض البيانات الرئيسية المحتوية على النوافذ -->
+    <div class="flex-1 flex flex-col h-full overflow-hidden w-full">
+        
+        <!-- شريط التنبيه الحرج والتحكم العلوي (Header) -->
+        <header class="bg-white border-b border-slate-200/80 flex flex-col z-10 shadow-sm">
+            <!-- واجهة الموبايل والتابلت العلوية -->
+            <div class="px-4 py-3 flex items-center justify-between lg:hidden border-b border-slate-100">
+                <button onclick="toggleSidebar()" class="text-navy-sidebar p-1.5 focus:outline-none bg-slate-100 rounded-lg">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+                <span class="font-bold text-xs text-navy-dark">المنصة الإعلامية الموحدة (NCCM)</span>
+                <div class="w-8 h-8 rounded-full bg-accent-copper text-white flex items-center justify-center text-xs font-bold">م</div>
+            </div>
+
+            <!-- شريط شريط الأخبار العاجلة (Ticker) السيادي -->
+            <div class="bg-accent-red text-white px-4 lg:px-6 py-2 flex items-center gap-3 text-xs lg:text-sm font-medium">
+                <div class="bg-white text-accent-red px-2 py-0.5 rounded font-black text-[10px] lg:text-xs shadow shrink-0 animate-pulse">
+                    <span class="font-title text-sm lg:text-base">حالة الطوارئ</span>
+                </div>
+                <div class="flex-1 overflow-hidden relative">
+                    <div class="whitespace-nowrap inline-block animate-marquee">
+                        تنبيه ساري المفعول: منسوب مرتفع للأمطار في المناطق الجنوبية – جاهزية الفرق الميدانية 100% – تم تفعيل غرفة العمليات بالكامل.
+                    </div>
+                </div>
+                <div class="text-[10px] lg:text-xs text-white/80 border-r border-white/20 pr-3 font-mono hidden sm:block">2026-06-22</div>
+            </div>
+        </header>
+
+        <!-- النوافذ التفاعلية القابلة للتبديل (Single Page Tab System) -->
+        <main class="flex-1 p-4 lg:p-8 overflow-y-auto custom-scrollbar space-y-6 lg:space-y-8">
+            
+            <!-- نافذة 1: الشاشة الرئيسية ولوحة المتابعة -->
+            <section id="tab-dashboard" class="tab-content space-y-6 lg:space-y-8">
+                <div>
+                    <h2 class="text-xl lg:text-2xl font-extrabold text-navy-dark">الشاشة الرئيسية ولوحة المتابعة اللحظية</h2>
+                    <p class="text-xs lg:text-sm text-slate-500 mt-1">مستند من الخطة الاستراتيجية للتنمية المؤسسية 2026-2028</p>
+                </div>
+
+                <!-- شبكة الإحصائيات المتجاوبة -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+                    <div class="bg-white p-5 lg:p-6 rounded-2xl shadow-sm border border-slate-200/60 flex flex-col items-center justify-center text-center">
+                        <span class="text-xs lg:text-sm font-bold text-slate-500">أزمات نشطة الآن</span>
+                        <span class="text-3xl lg:text-4xl font-black text-accent-red mt-1 lg:mt-2">3</span>
+                    </div>
+                    <div class="bg-white p-5 lg:p-6 rounded-2xl shadow-sm border border-slate-200/60 flex flex-col items-center justify-center text-center">
+                        <span class="text-xs lg:text-sm font-bold text-slate-500">بلاغات اليوم</span>
+                        <span class="text-3xl lg:text-4xl font-black text-navy-dark mt-1 lg:mt-2">217</span>
+                    </div>
+                    <div class="bg-white p-5 lg:p-6 rounded-2xl shadow-sm border border-slate-200/60 flex flex-col items-center justify-center text-center">
+                        <span class="text-xs lg:text-sm font-bold text-slate-500">مستوى الجاهزية العامة</span>
+                        <span class="text-base lg:text-lg font-black bg-emerald-50 text-emerald-600 px-4 py-1 rounded-full mt-2 lg:mt-3 border border-emerald-200">مرتفع</span>
+                    </div>
+                    <div class="bg-white p-5 lg:p-6 rounded-2xl shadow-sm border border-slate-200/60 flex flex-col items-center justify-center text-center">
+                        <span class="text-xs lg:text-sm font-bold text-slate-500">فرق ميدانية منتشرة</span>
+                        <span class="text-3xl lg:text-4xl font-black text-accent-copper mt-1 lg:mt-2">48</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- نافذة 2: نظام النشر الفوري للبيانات الرسمية -->
+            <section id="tab-publishing" class="tab-content hidden space-y-6 lg:space-y-8">
+                <div>
+                    <h2 class="text-xl lg:text-2xl font-extrabold text-navy-dark">نظام NIFP (النشر الفوري)</h2>
+                    <p class="text-xs lg:text-sm text-slate-500 mt-1">بوابة الربط الإلكتروني المباشر وتعميم البيانات السيادية</p>
+                </div>
+                <div class="bg-white p-5 lg:p-8 rounded-2xl shadow-sm border border-slate-200/60 max-w-3xl space-y-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-2">نص البيان الرسمي المراد نشره</label>
+                        <textarea rows="4" placeholder="اكتب نص البيان المعتمد بدقة هنا للتعميم اللحظي..." class="w-full bg-slate-50 border border-slate-200 rounded-xl p-4 text-xs lg:text-sm focus:outline-none focus:border-accent-copper font-medium"></textarea>
+                    </div>
+                    <button class="bg-navy-sidebar hover:bg-navy-active text-white px-6 py-2.5 rounded-xl font-bold text-xs lg:text-sm transition-all shadow-md w-full sm:w-auto">اعتماد ونشر فوري</button>
+                </div>
+            </section>
+
+            <!-- نافذة 3: مرصد الشائعات وتفنيد الحقائق -->
+            <section id="tab-rumors" class="tab-content hidden space-y-6 lg:space-y-8">
+                <div>
+                    <h2 class="text-xl lg:text-2xl font-extrabold text-navy-dark">مرصد الشائعات وتفنيد الحقائق</h2>
+                    <p class="text-xs lg:text-sm text-slate-500 mt-1">رصد وتحليل الأخبار المغلوطة واحتوائها إعلامياً</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200/60 text-center text-slate-500 text-xs">
+                    جاري إعداد محرك الرصد وتحليل المحتوى الرقمي...
+                </div>
+            </section>
+
+            <!-- نافذة 4: إرسال التحذيرات العاجلة SMS -->
+            <section id="tab-alerts" class="tab-content hidden space-y-6 lg:space-y-8">
+                <div>
+                    <h2 class="text-xl lg:text-2xl font-extrabold text-navy-dark">إرسال التحذيرات العاجلة والإنذار المبكر</h2>
+                    <p class="text-xs lg:text-sm text-slate-500 mt-1">بث رسائل التحذير الجغرافي الخلوي للمواطنين فوراً</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200/60 text-center text-slate-500 text-xs">
+                    جاري تهيئة شبكة البث الخلوي الجغرافي والربط مع شركات الاتصالات...
+                </div>
+            </section>
+
+        </main>
+
+        <!-- تذييل الصفحة السيادي الموحد للجهة الحكومية -->
+        <footer class="bg-white border-t border-slate-200/80 px-4 lg:px-8 py-3 flex flex-col sm:flex-row justify-between items-center text-[10px] lg:text-[11px] text-slate-400 font-bold z-10 gap-2">
+            <div>المركز الوطني لإدارة الطوارئ والأزمات والكوارث – جميع الحقوق محفوظة © 2026</div>
+            <div class="text-accent-copper font-medium">سري - للاستخدام الرسمي وبموجب الخطة الاستراتيجية لتطوير البنية التحتية</div>
+        </footer>
+
+    </div>
+
+    <!-- الأكواد البرمجية للتحكم الفوري والتنقل المستقر والتجاوبية -->
+    <script>
+        // دالة التحكم بفتح وإغلاق القائمة الجانبية في شاشات الموبايل والتابلت
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebar-overlay');
+            
+            if (sidebar.classList.contains('translate-x-full')) {
+                sidebar.classList.remove('translate-x-full');
+                overlay.classList.remove('hidden');
+            } else {
+                sidebar.classList.add('translate-x-full');
+                overlay.classList.add('hidden');
+            }
+        }
+
+        // دالة التبديل السلس بين النوافذ والأقسام دون إعادة تحميل الصفحة (Single Page App)
+        function switchTab(tabId) {
+            // 1. إخفاء جميع النوافذ المفتوحة
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.add('hidden');
+            });
+
+            // 2. إظهار النافذة المحددة
+            const targetTab = document.getElementById('tab-' + tabId);
+            if (targetTab) {
+                targetTab.classList.remove('hidden');
+            }
+
+            // 3. إعادة تعيين مظهر أزرار التنقل لتوضيح الخيار النشط
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('bg-accent-copper', 'text-white', 'font-bold', 'shadow-md');
+                btn.classList.add('text-slate-300', 'font-medium');
+                btn.classList.add('hover:bg-white/5', 'hover:text-white');
+            });
+
+            const activeBtn = document.getElementById('btn-' + tabId);
+            if (activeBtn) {
+                activeBtn.classList.remove('text-slate-300', 'font-medium', 'hover:bg-white/5', 'hover:text-white');
+                activeBtn.classList.add('bg-accent-copper', 'text-white', 'font-bold', 'shadow-md');
+            }
+
+            // 4. إغلاق القائمة الجانبية تلقائياً في شاشات الموبايل بعد اختيار النافذة لمنع الحجب
+            if (window.innerWidth < 1024) {
+                toggleSidebar();
+            }
+        }
+    </script>
+</body>
+</html>
