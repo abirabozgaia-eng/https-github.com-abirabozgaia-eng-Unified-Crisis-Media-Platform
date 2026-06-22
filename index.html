@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>المنصة الإعلامية الوطنية الموحدة | المركز الوطني لإدارة الطوارئ والأزمات والكوارث</title>
-    <!-- تضمين الخطوط والتنسيقات المتقدمة -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -36,20 +35,15 @@
 </head>
 <body class="bg-nccmBg text-slate-100 min-h-screen flex overflow-hidden">
 
-    <!-- القائمة الجانبية (Sidebar) - الهوية الرسمية للمركز -->
     <aside class="w-80 bg-nccmSidebar flex flex-col justify-between border-l border-slate-800 h-screen select-none z-20 shadow-2xl">
         <div>
-            <!-- شعار وهوية المركز المحدثة بناءً على المرفق -->
             <div class="p-5 border-b border-slate-800 flex flex-col items-center text-center bg-slate-950/40">
-                <!-- حاوية احترافية مخصصة لعرض شعار NCCM LOGO_4.jpeg كاملاً دون اقتصاص -->
                 <div class="w-full bg-white rounded-xl p-2 mb-3 shadow-xl flex items-center justify-center overflow-hidden border border-slate-700">
-                    <img src="NCCM LOGO_4.jpeg" alt="شعار المركز الوطني لإدارة الطوارئ والأزمات والكوارث" class="w-full h-auto object-contain max-h-32">
+                    <img src="NCCM LOGO.jpeg" alt="شعار المركز الوطني لإدارة الطوارئ والأزمات والكوارث" class="w-full h-auto object-contain max-h-32">
                 </div>
-                <h1 class="text-xs font-bold text-white leading-snug hidden">المركز الوطني لإدارة الطوارئ والأزمات والكوارث</h1>
                 <p class="text-xs text-nccmGold mt-1 font-semibold tracking-wide">المنصة الإعلامية الوطنية الموحدة</p>
             </div>
 
-            <!-- خيارات التحكم والتبويب التشغيلي للمكونات الستة -->
             <nav class="mt-4 px-3 space-y-1 overflow-y-auto max-h-[calc(100vh-280px)]">
                 <button onclick="switchTab('dashboard')" id="btn-dashboard" class="sidebar-item active w-full flex items-center px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white rounded-lg transition-all text-right gap-3">
                     <svg class="w-5 h-5 text-nccmGold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2H6a2 2 0 01-2-2v-4zM14 16a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2h-2a2 2 0 01-2-2v-4z"></path></svg>
@@ -83,7 +77,6 @@
             </nav>
         </div>
 
-        <!-- تذييل المنظومة والأمن السيادي -->
         <div class="p-4 border-t border-slate-800 bg-slate-950/60 text-[11px] space-y-1.5 font-mono">
             <div class="flex justify-between items-center text-slate-400">
                 <span>تصنيف الوثيقة:</span>
@@ -96,9 +89,7 @@
         </div>
     </aside>
 
-    <!-- مساحة العمل والمحتوى الرئيسي -->
     <main class="flex-1 flex flex-col h-screen overflow-y-auto">
-        <!-- شريط علوي موحد للمنظومة -->
         <header class="bg-nccmSidebar border-b border-slate-800 px-8 py-4 flex justify-between items-center shadow-lg">
             <div>
                 <h2 class="text-sm font-bold text-slate-200">غرفة العمليات المركزية</h2>
@@ -110,41 +101,31 @@
             </div>
         </header>
 
-        <!-- النوافذ التفاعلية التشغيلية (Tabs Content) -->
         <div class="p-8 flex-1 space-y-6">
             
-            <!-- 1. لوحة المراقبة التفاعلية والمؤشرات الاستراتيجية (Dashboard) -->
             <section id="sec-dashboard" class="tab-content space-y-6">
-                <!-- أربعة مؤشرات أداء رئيسية حقيقية مستمدة من الصفحة 9 للتقرير -->
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
                     <div class="bg-nccmCard p-5 rounded-xl border border-slate-800 shadow-md">
                         <div class="text-[11px] text-slate-400 font-medium">الحد الأقصى لنشر التحذير</div>
                         <div class="text-xl font-bold text-slate-100 mt-1">أقل من 3 دقائق</div>
-                        <div class="text-[10px] text-slate-500 mt-1.5">من الاعتماد الرسمي للبث العام.</div>
                     </div>
                     <div class="bg-nccmCard p-5 rounded-xl border border-slate-800 shadow-md">
                         <div class="text-[11px] text-slate-400 font-medium">معدل الوصول العام المستهدف</div>
                         <div class="text-xl font-bold text-sky-400 mt-1">90% من السكان</div>
-                        <div class="text-[10px] text-slate-500 mt-1.5">عبر قنوات البث الجغرافي الخلوي.</div>
                     </div>
                     <div class="bg-nccmCard p-5 rounded-xl border border-slate-800 shadow-md">
                         <div class="text-[11px] text-slate-400 font-medium">تغطية تحليل الشائعات بالفور</div>
                         <div class="text-xl font-bold text-purple-400 mt-1">100% تلقائي</div>
-                        <div class="text-[10px] text-slate-500 mt-1.5">بمحرك الذكاء الاصطناعي المركزي.</div>
                     </div>
                     <div class="bg-nccmCard p-5 rounded-xl border border-slate-800 shadow-md">
                         <div class="text-[11px] text-slate-400 font-medium">الجهات الحكومية المرتبطة</div>
                         <div class="text-xl font-bold text-emerald-400 mt-1">25 جهة رسمية</div>
-                        <div class="text-[10px] text-slate-500 mt-1.5">ربط متكامل وتبادل بيانات لحظي.</div>
                     </div>
                 </div>
 
-                <!-- لوحة مراقبة الأحداث والوعي الميداني اللحظي -->
                 <div class="bg-nccmCard p-6 rounded-xl border border-slate-800">
                     <div class="flex justify-between items-center mb-4">
-                        <h3 class="text-xs font-bold text-white flex items-center gap-2">
-                            لوحة مراقبة الأحداث والوعي الميداني اللحظي
-                        </h3>
+                        <h3 class="text-xs font-bold text-white">لوحة مراقبة الأحداث والوعي الميداني اللحظي</h3>
                         <span class="text-[10px] bg-slate-900 border border-slate-700 px-3 py-1 rounded text-slate-400">تحديث تلقائي كل 5 ثوانٍ</span>
                     </div>
                     <div class="bg-slate-950 rounded-lg border border-slate-800 h-80 flex flex-col items-center justify-center relative overflow-hidden">
@@ -152,59 +133,82 @@
                             <svg class="w-16 h-16 text-slate-800 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
                             <p class="text-xs text-slate-400 max-w-md">لا توجد بلاغات طوارئ نشطة حالياً. الوضع الميداني مستقر.</p>
                         </div>
-                        <div class="absolute inset-0 opacity-5 bg-[radial-gradient(#c29d58_1px,transparent_1px)] [background-size:20px_20px]"></div>
                     </div>
                 </div>
             </section>
 
-            <!-- 2. نظام النشر الفوري للبيانات -->
             <section id="sec-publishing" class="tab-content hidden space-y-6">
                 <div class="bg-nccmCard p-6 rounded-xl border border-slate-800 space-y-4">
                     <h3 class="text-xs font-bold text-white mb-1">صياغة وتعميم الخطاب الإعلامي الموحد</h3>
-                    <textarea id="publish-input" rows="4" placeholder="اكتب نص الخطاب الرسمي هنا لضخّه فوراً عبر البوابات الإعلامية المشتركة..." class="w-full bg-slate-950 border border-slate-700 rounded-lg p-3 text-xs text-slate-200 focus:outline-none focus:border-nccmGold"></textarea>
+                    <textarea id="publish-input" rows="4" placeholder="اكتب نص الخطاب الرسمي هنا..." class="w-full bg-slate-950 border border-slate-700 rounded-lg p-3 text-xs text-slate-200 focus:outline-none focus:border-nccmGold"></textarea>
                     <button onclick="executePublish()" class="bg-nccmPrimary hover:bg-blue-700 text-white font-bold text-xs px-5 py-2.5 rounded-lg transition-all">بث ونشر متزامن للبيان</button>
                     <div id="publish-status-box" class="hidden bg-nccmGreen/10 border border-nccmGreen/30 p-4 rounded-xl text-nccmGreen text-xs">
-                        ✅ تم التعميم بنجاح عبر قنوات الربط الموحدة (API Gateway) خلال 12 ثانية فقط.
+                        ✅ تم التعميم بنجاح عبر قنوات الربط الموحدة (API Gateway).
                     </div>
                 </div>
             </section>
 
-            <!-- 3. كشف الشائعات وتحليل المحتوى -->
             <section id="sec-rumors" class="tab-content hidden space-y-6">
                 <div class="bg-nccmCard p-6 rounded-xl border border-slate-800 space-y-4">
                     <h3 class="text-xs font-bold text-white">نظام الكشف والتحقق الآلي من الشائعات والتقارير المضللة</h3>
                     <div class="bg-slate-950 p-4 rounded-lg border border-slate-800 space-y-2">
                         <p class="text-xs text-slate-300 font-semibold">الشائعة المرصودة حالياً: "منشورات متداولة عن تعليق شبكات الاتصال والضخ المائي الكلي بالبلديات الغربية."</p>
-                        <p class="text-[11px] text-nccmGreen">الإجراء التشغيلي: تم رصد الشائعة تلقائياً وضخ الرد الفني الموحد عبر المنصة لدحض التضليل بنسبة 100%.</p>
+                        <p class="text-[11px] text-nccmGreen">الإجراء التشغيلي: تم رصد الشائعة تلقائياً وضخ الرد الفني الموحد لدحض التضليل بنسبة 100%.</p>
                     </div>
                 </div>
             </section>
 
-            <!-- 4. نظام التنبيه الفوري الجغرافي -->
             <section id="sec-alerts" class="tab-content hidden space-y-6">
                 <div class="bg-nccmCard p-6 rounded-xl border border-slate-800 space-y-4">
                     <h3 class="text-xs font-bold text-white">إرسال التنبيهات الجغرافية العاجلة لحماية المواطنين (Geofencing)</h3>
-                    <textarea id="alert-msg" rows="3" placeholder="نص التحذير العاجل لإرساله لهواتف المواطنين في النطاق المعني بالأزمة..." class="w-full bg-slate-950 border border-slate-700 rounded-lg p-2.5 text-xs text-slate-200 focus:outline-none"></textarea>
+                    <textarea id="alert-msg" rows="3" placeholder="نص التحذير العاجل لإرساله لهواتف المواطنين..." class="w-full bg-slate-950 border border-slate-700 rounded-lg p-2.5 text-xs text-slate-200 focus:outline-none"></textarea>
                     <button onclick="triggerEmergencyAlert()" class="bg-nccmRed hover:bg-red-700 text-white font-bold text-xs px-5 py-2.5 rounded-lg transition-all">إطلاق تحذير السلامة العامة</button>
                 </div>
             </section>
 
-            <!-- 5. واجهة الأرشيف الرقمي الآمن -->
             <section id="sec-archive" class="tab-content hidden space-y-6">
                 <div class="bg-nccmCard p-6 rounded-xl border border-slate-800 space-y-4">
                     <h3 class="text-xs font-bold text-white">السجلات المؤرشفة سحابياً (التشغيلي الآمن 50 تيرابايت)</h3>
-                    <p class="text-xs text-slate-400">جميع المراسلات والخطابات الرسمية يتم تشفيرها تلقائياً باستخدام بروتوكولات (SHA-256) السيادية للرجوع إليها في أي وقت.</p>
+                    <p class="text-xs text-slate-400">جميع المراسلات والخطابات الرسمية يتم تشفيرها تلقائياً باستخدام بروتوكولات (SHA-256) السيادية.</p>
                 </div>
             </section>
 
-            <!-- 6. البنية التحتية والمؤشرات -->
             <section id="sec-infrastructure" class="tab-content hidden space-y-6">
-                <div class="bg-nccmCard p-6 rounded-xl border border-slate-800 space-y-4">
-                    <h3 class="text-xs font-bold text-white">حالة الخوادم السحابية واستمرارية الحوكمة الرقمية</h3>
-                    <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 flex justify-between items-center">
+                <div class="bg-nccmCard p-6 rounded-xl border border-slate-800 space-y-6">
+                    <h3 class="text-xs font-bold text-nccmGold flex items-center gap-2 border-b border-slate-700 pb-3">
+                        📊 لوحة قياس مؤشرات الأداء الاستراتيجية للمنظومة (KPIs)
+                    </h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-right">
+                        <div class="bg-slate-900 border border-slate-700/50 rounded-xl p-5 hover:border-nccmGold/40 transition-all">
+                            <div class="text-3xl font-extrabold text-blue-500 mb-1">3 دقائق</div>
+                            <div class="text-xs font-bold text-slate-200 mb-1">وقت نشر التحذير</div>
+                            <p class="text-[11px] text-slate-400 leading-relaxed">الحد الأقصى للوقت المستغرق من الموافقة الرسمية إلى البث العام لتحذير عاجل.</p>
+                        </div>
+
+                        <div class="bg-slate-900 border border-slate-700/50 rounded-xl p-5 hover:border-nccmGold/40 transition-all">
+                            <div class="text-3xl font-extrabold text-nccmGreen mb-1">90%</div>
+                            <div class="text-xs font-bold text-slate-200 mb-1">معدل الوصول العام</div>
+                            <p class="text-[11px] text-slate-400 leading-relaxed">النسبة المستهدفة من السكان الذين يتم الوصول إليهم عبر كل تحذير طوارئ رسمي.</p>
+                        </div>
+
+                        <div class="bg-slate-900 border border-slate-700/50 rounded-xl p-5 hover:border-nccmGold/40 transition-all">
+                            <div class="text-3xl font-extrabold text-nccmRed mb-1">100%</div>
+                            <div class="text-xs font-bold text-slate-200 mb-1">تغطية تحليل الشائعات</div>
+                            <p class="text-[11px] text-slate-400 leading-relaxed">جميع الشائعات المتداولة تُحلّل وتُدحض شهرياً باستخدام محرك الكشف المركزي.</p>
+                        </div>
+
+                        <div class="bg-slate-900 border border-slate-700/50 rounded-xl p-5 hover:border-nccmGold/40 transition-all">
+                            <div class="text-3xl font-extrabold text-amber-500 mb-1">25 جهة</div>
+                            <div class="text-xs font-bold text-slate-200 mb-1">الجهات الحكومية المرتبطة</div>
+                            <p class="text-[11px] text-slate-400 leading-relaxed">عدد القطاعات والوزارات المرتبطة بالمنصة والمندمجة معها بشكل نشط ولحظي.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 flex justify-between items-center mt-4">
                         <div>
-                            <div class="text-[11px] text-slate-400">معدل جاهزية واستقرار النظام (System Uptime)</div>
-                            <div class="text-base font-bold text-nccmGreen mt-1">99.99% (كفاءة تشغيلية كاملة)</div>
+                            <div class="text-[11px] text-slate-400">معدل جاهزية واستقرار النظام السيادي (System Uptime)</div>
+                            <div class="text-sm font-bold text-nccmGreen mt-1">99.99% (كفاءة تشغيلية كاملة واستمرارية للأعمال)</div>
                         </div>
                         <span class="w-3 h-3 bg-nccmGreen rounded-full animate-pulse"></span>
                     </div>
@@ -214,7 +218,6 @@
         </div>
     </main>
 
-    <!-- نظام المحاكاة والتبديل التفاعلي -->
     <script>
         function switchTab(tabId) {
             document.querySelectorAll('.tab-content').forEach(section => {
@@ -236,8 +239,9 @@
         function triggerEmergencyAlert() {
             var msg = document.getElementById('alert-msg').value;
             if(!msg.trim()) { alert('يرجى كتابة نص التحذير.'); return; }
-            alert('تم تمرير وإرسال رسالة البث الخلوي الجغرافي الفوري لجميع الهواتف المتواجدة في النطاق بنجاح.');
+            alert('تم تمرير وإرسال رسالة البث الخلوي الجغرافي الفوري بنجاح.');
         }
     </script>
 </body>
 </html>
+               
